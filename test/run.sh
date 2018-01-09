@@ -110,20 +110,20 @@ main() {
   local get="${PROJECT_PATH}/bin/s3-get"
   local put="${PROJECT_PATH}/bin/s3-put"
   local delete="${PROJECT_PATH}/bin/s3-delete"
-  local testfile="${PROJECT_PATH}/test/testfile"
+  local uploadfile="$2"
 
   export AWS_DEFAULT_REGION=${AWS_REGION}
   export AWS_ACCESS_KEY_ID
   export AWS_SECRET_ACCESS_KEY
 
   echo "Upload test file to $RESOURCE_PATH"
-  "${put}" -T "${testfile}" "${RESOURCE_PATH}"
+  "${put}" -T "${uploadfile}" "${RESOURCE_PATH}"
 
-  echo "Download test file $RESOURCE_PATH"
-  "${get}" "${RESOURCE_PATH}"
+  # echo "Download test file $RESOURCE_PATH"
+  # "${get}" "${RESOURCE_PATH}"
 
-  echo "Delete test file $RESOURCE_PATH"
-  "${delete}" "${RESOURCE_PATH}"
+  # echo "Delete test file $RESOURCE_PATH"
+  # "${delete}" "${RESOURCE_PATH}"
 }
 
 main $@
